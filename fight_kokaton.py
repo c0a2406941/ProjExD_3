@@ -7,7 +7,7 @@ import pygame as pg
 
 WIDTH = 1100  # ゲームウィンドウの幅
 HEIGHT = 650  # ゲームウィンドウの高さ
-NUM_OF_BOMS = 5  # 爆弾の数
+NUM_OF_BOMBS = 5  # 爆弾の数
 os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
 
@@ -151,7 +151,7 @@ def main():
     # for _ in range(NUM_OF_BOMS):
     #     bomb = Bomb((255, 0, 0), 10)
     #     bombs.append(bomb)
-    bombs = [Bomb((255, 0, 0), 10) for _ in range(NUM_OF_BOMS)]
+    bombs = [Bomb((255, 0, 0), 10) for _ in range(NUM_OF_BOMBS)]
     beam = None  # ゲーム初期化時にはビームは存在しない
     clock = pg.time.Clock()
     tmr = 0
@@ -189,7 +189,7 @@ def main():
         bird.update(key_lst, screen)
         if beam is not None:  # ビームが存在していたら
             beam.update(screen)  
-        if bomb in bombs:
+        for bomb in bombs:
             bomb.update(screen)
         pg.display.update()
         tmr += 1
