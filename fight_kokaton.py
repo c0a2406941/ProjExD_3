@@ -204,17 +204,6 @@ def main():
                     bird.change_img(6, screen)
                     pg.display.update()
         bombs = [bomb for bomb in bombs if bomb is not None]
-        for i, beam in enumerate(beams):
-            for b, bomb in enumerate(bombs):
-                if beam is not None:
-                    if beam.rct.colliderect(bomb.rct):
-                        # ビームが爆弾に当たったらどっちも消す
-                        beams[i] = None
-                        bombs[b] = None
-                        bird.change_img(6, screen)
-                        pg.display.update()
-            bombs = [bomb for bomb in bombs if bomb is not None]
-        beams = [beam for beam in beams if beam is not None] 
 
         key_lst = pg.key.get_pressed()
         bird.update(key_lst, screen)
