@@ -204,6 +204,7 @@ def main():
     while True:
         for event in pg.event.get():
             if event.type == pg.QUIT:
+                
                 return
             if event.type == pg.KEYDOWN and event.key == pg.K_SPACE:
                 # スペースキー押下でBeamクラスのインスタンス生成
